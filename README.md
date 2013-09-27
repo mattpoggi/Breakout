@@ -5,7 +5,7 @@
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1>
 <a name="breakout" class="anchor" href="#breakout"><span class="octicon octicon-link"></span></a>Breakout game</h1>
 
-<a href="https://raw.github.com/mattpoggi/Breakout/blob/master/lv1.JPG" target="_blank"><img src="https://raw.github.com/mattpoggi/Breakout/blob/master/lv1.JPG" alt="pen - preview" style="max-width:100%;"></a></p>
+<!--<a href="https://raw.github.com/mattpoggi/Breakout/blob/master/lv1.JPG" target="_blank"><img src="https://raw.github.com/mattpoggi/Breakout/blob/master/lv1.JPG" alt="pen - preview" style="max-width:100%;"></a></p> -->
 
 <h2>
 <a name="1-About Breakout" class="anchor" href="#1-About Breakout"><span class="octicon octicon-link"></span></a>1.About Breakout</h2>
