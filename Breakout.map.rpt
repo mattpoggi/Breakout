@@ -1,0 +1,1194 @@
+Analysis & Synthesis report for Breakout
+Mon Sep 16 22:48:01 2013
+Quartus II Version 7.2 Build 151 09/26/2007 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Analysis & Synthesis DSP Block Usage Summary
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for Inferred Entity Instance: Breakout_DATA:Datapath|lpm_divide:Mod0
+ 14. Parameter Settings for Inferred Entity Instance: Breakout_DATA:Datapath|lpm_mult:Mult0
+ 15. Parameter Settings for Inferred Entity Instance: Breakout_DATA:Datapath|lpm_divide:Div0
+ 16. lpm_mult Parameter Settings by Entity Instance
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++------------------------------------+-----------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Sep 16 22:48:01 2013   ;
+; Quartus II Version                 ; 7.2 Build 151 09/26/2007 SJ Web Edition ;
+; Revision Name                      ; Breakout                                ;
+; Top-level Entity Name              ; Breakout                                ;
+; Family                             ; Cyclone II                              ;
+; Total logic elements               ; 4,321                                   ;
+;     Total combinational functions  ; 4,321                                   ;
+;     Dedicated logic registers      ; 349                                     ;
+; Total registers                    ; 349                                     ;
+; Total pins                         ; 46                                      ;
+; Total virtual pins                 ; 0                                       ;
+; Total memory bits                  ; 0                                       ;
+; Embedded Multiplier 9-bit elements ; 1                                       ;
+; Total PLLs                         ; 0                                       ;
++------------------------------------+-----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                            ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                         ; Setting            ; Default Value      ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                         ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                          ; Breakout           ; Breakout           ;
+; Family name                                                                    ; Cyclone II         ; Stratix II         ;
+; Optimization Technique -- Cyclone II/Cyclone III                               ; Area               ; Balanced           ;
+; Use Generated Physical Constraints File                                        ; Off                ;                    ;
+; Use smart compilation                                                          ; Off                ; Off                ;
+; Maximum processors allowed for parallel compilation                            ; 1                  ; 1                  ;
+; Restructure Multiplexers                                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                            ; Off                ; Off                ;
+; Preserve fewer node names                                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                      ; Off                ; Off                ;
+; Verilog Version                                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                                       ; Auto               ; Auto               ;
+; Safe State Machine                                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                              ; Off                ; Off                ;
+; Add Pass-Through Logic to Inferred RAMs                                        ; On                 ; On                 ;
+; Parallel Synthesis                                                             ; Off                ; Off                ;
+; DSP Block Balancing                                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                 ; Off                ; Off                ;
+; Carry Chain Length -- Stratix/Stratix GX/Cyclone/MAX II/Cyclone II/Cyclone III ; 70                 ; 70                 ;
+; Auto Carry Chains                                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                          ; Off                ; Off                ;
+; Perform gate-level register retiming                                           ; Off                ; Off                ;
+; Allow register retiming to trade off Tsu/Tco with Fmax                         ; On                 ; On                 ;
+; Auto ROM Replacement                                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                                           ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                  ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                         ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                              ; Off                ; Off                ;
+; Auto Resource Sharing                                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                  ; Off                ; Off                ;
+; Ignore translate_off and synthesis_off directives                              ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                             ; Off                ; Off                ;
+; Retiming Meta-Stability Register Sequence Length                               ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                           ; On                 ; On                 ;
+; Block Design Naming                                                            ; Auto               ; Auto               ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                               ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                     ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+
+; Breakout_CLKGENERATOR.vhd        ; yes             ; User VHDL File               ; C:/Users/Matteo/Desktop/Breakout/Breakout_CLKGENERATOR.vhd       ;
+; Breakout_KEYBOARD.vhd            ; yes             ; User VHDL File               ; C:/Users/Matteo/Desktop/Breakout/Breakout_KEYBOARD.vhd           ;
+; Breakout_DATA.vhd                ; yes             ; User VHDL File               ; C:/Users/Matteo/Desktop/Breakout/Breakout_DATA.vhd               ;
+; Breakout_VIEW.vhd                ; yes             ; User VHDL File               ; C:/Users/Matteo/Desktop/Breakout/Breakout_VIEW.vhd               ;
+; Breakout_CONTROL.vhd             ; yes             ; User VHDL File               ; C:/Users/Matteo/Desktop/Breakout/Breakout_CONTROL.vhd            ;
+; Breakout.vhd                     ; yes             ; User VHDL File               ; C:/Users/Matteo/Desktop/Breakout/Breakout.vhd                    ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/72/quartus/libraries/megafunctions/lpm_divide.tdf      ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/72/quartus/libraries/megafunctions/abs_divider.inc     ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/72/quartus/libraries/megafunctions/sign_div_unsign.inc ;
+; aglobal72.inc                    ; yes             ; Megafunction                 ; c:/altera/72/quartus/libraries/megafunctions/aglobal72.inc       ;
+; db/lpm_divide_45m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matteo/Desktop/Breakout/db/lpm_divide_45m.tdf           ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matteo/Desktop/Breakout/db/sign_div_unsign_bkh.tdf      ;
+; db/alt_u_div_sve.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matteo/Desktop/Breakout/db/alt_u_div_sve.tdf            ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matteo/Desktop/Breakout/db/add_sub_lkc.tdf              ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matteo/Desktop/Breakout/db/add_sub_mkc.tdf              ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/72/quartus/libraries/megafunctions/lpm_mult.tdf        ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/72/quartus/libraries/megafunctions/lpm_add_sub.inc     ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/72/quartus/libraries/megafunctions/multcore.inc        ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/72/quartus/libraries/megafunctions/bypassff.inc        ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/72/quartus/libraries/megafunctions/altshift.inc        ;
+; db/mult_sv01.tdf                 ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matteo/Desktop/Breakout/db/mult_sv01.tdf                ;
+; db/lpm_divide_tcm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matteo/Desktop/Breakout/db/lpm_divide_tcm.tdf           ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matteo/Desktop/Breakout/db/sign_div_unsign_7kh.tdf      ;
+; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matteo/Desktop/Breakout/db/alt_u_div_kve.tdf            ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                               ;
++---------------------------------------------+---------------------------------------------+
+; Resource                                    ; Usage                                       ;
++---------------------------------------------+---------------------------------------------+
+; Estimated Total logic elements              ; 4,321                                       ;
+;                                             ;                                             ;
+; Total combinational functions               ; 4321                                        ;
+; Logic element usage by number of LUT inputs ;                                             ;
+;     -- 4 input functions                    ; 2301                                        ;
+;     -- 3 input functions                    ; 1222                                        ;
+;     -- <=2 input functions                  ; 798                                         ;
+;                                             ;                                             ;
+; Logic elements by mode                      ;                                             ;
+;     -- normal mode                          ; 3297                                        ;
+;     -- arithmetic mode                      ; 1024                                        ;
+;                                             ;                                             ;
+; Total registers                             ; 349                                         ;
+;     -- Dedicated logic registers            ; 349                                         ;
+;     -- I/O registers                        ; 0                                           ;
+;                                             ;                                             ;
+; I/O pins                                    ; 46                                          ;
+; Embedded Multiplier 9-bit elements          ; 1                                           ;
+; Maximum fan-out node                        ; Breakout_CLKGENERATOR:ClockGenerator|cnt[0] ;
+; Maximum fan-out                             ; 323                                         ;
+; Total fan-out                               ; 15385                                       ;
+; Average fan-out                             ; 3.26                                        ;
++---------------------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                     ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                              ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |Breakout                                 ; 4321 (1)          ; 349 (0)      ; 0           ; 1            ; 1       ; 0         ; 46   ; 0            ; |Breakout                                                                                                                        ; work         ;
+;    |Breakout_CLKGENERATOR:ClockGenerator| ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_CLKGENERATOR:ClockGenerator                                                                                   ; work         ;
+;    |Breakout_CONTROL:ControlUnit|         ; 103 (103)         ; 59 (59)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_CONTROL:ControlUnit                                                                                           ; work         ;
+;    |Breakout_DATA:Datapath|               ; 2011 (1865)       ; 187 (187)    ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath                                                                                                 ; work         ;
+;       |lpm_divide:Div0|                   ; 59 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath|lpm_divide:Div0                                                                                 ; work         ;
+;          |lpm_divide_tcm:auto_generated|  ; 59 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath|lpm_divide:Div0|lpm_divide_tcm:auto_generated                                                   ; work         ;
+;             |sign_div_unsign_7kh:divider| ; 59 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath|lpm_divide:Div0|lpm_divide_tcm:auto_generated|sign_div_unsign_7kh:divider                       ; work         ;
+;                |alt_u_div_kve:divider|    ; 59 (59)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath|lpm_divide:Div0|lpm_divide_tcm:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_kve:divider ; work         ;
+;       |lpm_divide:Mod0|                   ; 87 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath|lpm_divide:Mod0                                                                                 ; work         ;
+;          |lpm_divide_45m:auto_generated|  ; 87 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath|lpm_divide:Mod0|lpm_divide_45m:auto_generated                                                   ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 87 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath|lpm_divide:Mod0|lpm_divide_45m:auto_generated|sign_div_unsign_bkh:divider                       ; work         ;
+;                |alt_u_div_sve:divider|    ; 87 (87)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath|lpm_divide:Mod0|lpm_divide_45m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_sve:divider ; work         ;
+;       |lpm_mult:Mult0|                    ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath|lpm_mult:Mult0                                                                                  ; work         ;
+;          |mult_sv01:auto_generated|       ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |Breakout|Breakout_DATA:Datapath|lpm_mult:Mult0|mult_sv01:auto_generated                                                         ; work         ;
+;    |Breakout_KEYBOARD:KeyboardController| ; 29 (29)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_KEYBOARD:KeyboardController                                                                                   ; work         ;
+;    |Breakout_VIEW:View|                   ; 2176 (2176)       ; 76 (76)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Breakout|Breakout_VIEW:View                                                                                                     ; work         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 1           ;
+; Simple Multipliers (18-bit)           ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 1           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                             ;
++------------------------------------------+-----------------------------------------------------+
+; Register name                            ; Reason for Removal                                  ;
++------------------------------------------+-----------------------------------------------------+
+; Breakout_VIEW:View|leds2[6]              ; Stuck at GND due to stuck port data_in              ;
+; Breakout_VIEW:View|leds2[0..5]           ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_VIEW:View|leds4[6]              ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_VIEW:View|leds4[3..5]           ; Stuck at GND due to stuck port data_in              ;
+; Breakout_VIEW:View|leds4[0..2]           ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_DATA:Datapath|westBorder[6]     ; Stuck at GND due to stuck port data_in              ;
+; Breakout_DATA:Datapath|westBorder[5]     ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_DATA:Datapath|westBorder[4]     ; Stuck at GND due to stuck port data_in              ;
+; Breakout_DATA:Datapath|westBorder[2..3]  ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_DATA:Datapath|westBorder[1]     ; Stuck at GND due to stuck port data_in              ;
+; Breakout_DATA:Datapath|westBorder[0]     ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_DATA:Datapath|eastBorder[9]     ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_DATA:Datapath|eastBorder[7..8]  ; Stuck at GND due to stuck port data_in              ;
+; Breakout_DATA:Datapath|eastBorder[6]     ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_DATA:Datapath|eastBorder[5]     ; Stuck at GND due to stuck port data_in              ;
+; Breakout_DATA:Datapath|eastBorder[1..4]  ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_DATA:Datapath|eastBorder[0]     ; Stuck at GND due to stuck port data_in              ;
+; Breakout_DATA:Datapath|westBorder[7..9]  ; Stuck at GND due to stuck port data_in              ;
+; Breakout_DATA:Datapath|southBorder[0..1] ; Stuck at GND due to stuck port data_in              ;
+; Breakout_DATA:Datapath|southBorder[2..3] ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_DATA:Datapath|southBorder[4..5] ; Stuck at GND due to stuck port data_in              ;
+; Breakout_DATA:Datapath|southBorder[6..8] ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_DATA:Datapath|northBorder[0]    ; Stuck at GND due to stuck port data_in              ;
+; Breakout_DATA:Datapath|northBorder[1..4] ; Stuck at VCC due to stuck port data_in              ;
+; Breakout_DATA:Datapath|northBorder[5..8] ; Stuck at GND due to stuck port data_in              ;
+; Breakout_VIEW:View|leftBorder[7]         ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|upBorder[0]           ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|downBorder[0]         ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|leftBorder[4]         ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|upBorder[6]           ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|leftBorder[9]         ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|downBorder[4]         ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|upBorder[5]           ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|downBorder[5]         ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|leftBorder[6]         ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|upBorder[8]           ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|rightBorder[7]        ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|leftBorder[8]         ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|upBorder[7]           ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|leftBorder[1]         ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|rightBorder[8]        ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|downBorder[1]         ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|rightBorder[5]        ; Merged with Breakout_VIEW:View|rightBorder[0]       ;
+; Breakout_VIEW:View|rightBorder[2]        ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|upBorder[3]           ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|downBorder[7]         ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|leftBorder[5]         ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|downBorder[8]         ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|leftBorder[2]         ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|upBorder[2]           ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|rightBorder[6,9]      ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|upBorder[1]           ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|rightBorder[4]        ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|upBorder[4]           ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|rightBorder[3]        ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|downBorder[3,6]       ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|leftBorder[0]         ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|downBorder[2]         ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_VIEW:View|leftBorder[3]         ; Merged with Breakout_VIEW:View|rightBorder[1]       ;
+; Breakout_DATA:Datapath|ballPositionH[9]  ; Merged with Breakout_DATA:Datapath|ballPositionX[9] ;
+; Breakout_DATA:Datapath|ballPositionH[8]  ; Merged with Breakout_DATA:Datapath|ballPositionX[8] ;
+; Breakout_DATA:Datapath|ballPositionH[7]  ; Merged with Breakout_DATA:Datapath|ballPositionX[7] ;
+; Breakout_DATA:Datapath|ballPositionH[6]  ; Merged with Breakout_DATA:Datapath|ballPositionX[6] ;
+; Breakout_DATA:Datapath|ballPositionH[5]  ; Merged with Breakout_DATA:Datapath|ballPositionX[5] ;
+; Breakout_DATA:Datapath|ballPositionH[4]  ; Merged with Breakout_DATA:Datapath|ballPositionX[4] ;
+; Breakout_DATA:Datapath|ballPositionH[3]  ; Merged with Breakout_DATA:Datapath|ballPositionX[3] ;
+; Breakout_DATA:Datapath|ballPositionH[2]  ; Merged with Breakout_DATA:Datapath|ballPositionX[2] ;
+; Breakout_DATA:Datapath|ballPositionH[1]  ; Merged with Breakout_DATA:Datapath|ballPositionX[1] ;
+; Breakout_DATA:Datapath|ballPositionH[0]  ; Merged with Breakout_DATA:Datapath|ballPositionX[0] ;
+; Breakout_DATA:Datapath|ballPositionV[8]  ; Merged with Breakout_DATA:Datapath|ballPositionY[8] ;
+; Breakout_DATA:Datapath|ballPositionV[7]  ; Merged with Breakout_DATA:Datapath|ballPositionY[7] ;
+; Breakout_DATA:Datapath|ballPositionV[6]  ; Merged with Breakout_DATA:Datapath|ballPositionY[6] ;
+; Breakout_DATA:Datapath|ballPositionV[5]  ; Merged with Breakout_DATA:Datapath|ballPositionY[5] ;
+; Breakout_DATA:Datapath|ballPositionV[4]  ; Merged with Breakout_DATA:Datapath|ballPositionY[4] ;
+; Breakout_DATA:Datapath|ballPositionV[3]  ; Merged with Breakout_DATA:Datapath|ballPositionY[3] ;
+; Breakout_DATA:Datapath|ballPositionV[2]  ; Merged with Breakout_DATA:Datapath|ballPositionY[2] ;
+; Breakout_DATA:Datapath|ballPositionV[1]  ; Merged with Breakout_DATA:Datapath|ballPositionY[1] ;
+; Breakout_DATA:Datapath|ballPositionV[0]  ; Merged with Breakout_DATA:Datapath|ballPositionY[0] ;
+; Breakout_DATA:Datapath|padLeftEdge[9]    ; Merged with Breakout_DATA:Datapath|padLEdge[9]      ;
+; Breakout_DATA:Datapath|padLeftEdge[8]    ; Merged with Breakout_DATA:Datapath|padLEdge[8]      ;
+; Breakout_DATA:Datapath|padLeftEdge[7]    ; Merged with Breakout_DATA:Datapath|padLEdge[7]      ;
+; Breakout_DATA:Datapath|padLeftEdge[6]    ; Merged with Breakout_DATA:Datapath|padLEdge[6]      ;
+; Breakout_DATA:Datapath|padLeftEdge[5]    ; Merged with Breakout_DATA:Datapath|padLEdge[5]      ;
+; Breakout_DATA:Datapath|padLeftEdge[4]    ; Merged with Breakout_DATA:Datapath|padLEdge[4]      ;
+; Breakout_DATA:Datapath|padLeftEdge[3]    ; Merged with Breakout_DATA:Datapath|padLEdge[3]      ;
+; Breakout_DATA:Datapath|padLeftEdge[2]    ; Merged with Breakout_DATA:Datapath|padLEdge[2]      ;
+; Breakout_DATA:Datapath|padLeftEdge[0]    ; Merged with Breakout_DATA:Datapath|padLEdge[0]      ;
+; Breakout_DATA:Datapath|padRightEdge[0]   ; Merged with Breakout_DATA:Datapath|padLEdge[0]      ;
+; Breakout_DATA:Datapath|padRightEdge[9]   ; Merged with Breakout_DATA:Datapath|padREdge[9]      ;
+; Breakout_DATA:Datapath|padRightEdge[8]   ; Merged with Breakout_DATA:Datapath|padREdge[8]      ;
+; Breakout_DATA:Datapath|padRightEdge[7]   ; Merged with Breakout_DATA:Datapath|padREdge[7]      ;
+; Breakout_DATA:Datapath|padRightEdge[6]   ; Merged with Breakout_DATA:Datapath|padREdge[6]      ;
+; Breakout_DATA:Datapath|padRightEdge[5]   ; Merged with Breakout_DATA:Datapath|padREdge[5]      ;
+; Breakout_DATA:Datapath|padRightEdge[4]   ; Merged with Breakout_DATA:Datapath|padREdge[4]      ;
+; Breakout_DATA:Datapath|padRightEdge[3]   ; Merged with Breakout_DATA:Datapath|padREdge[3]      ;
+; Breakout_DATA:Datapath|padRightEdge[2]   ; Merged with Breakout_DATA:Datapath|padREdge[2]      ;
+; Breakout_DATA:Datapath|padRightEdge[1]   ; Merged with Breakout_DATA:Datapath|padREdge[1]      ;
+; Breakout_DATA:Datapath|padLeftEdge[1]    ; Merged with Breakout_DATA:Datapath|padREdge[1]      ;
+; Breakout_DATA:Datapath|ostacoli[0]       ; Merged with Breakout_DATA:Datapath|obstacles[0]     ;
+; Breakout_DATA:Datapath|ostacoli[1]       ; Merged with Breakout_DATA:Datapath|obstacles[1]     ;
+; Total Number of Removed Registers = 509  ;                                                     ;
++------------------------------------------+-----------------------------------------------------+
+* Table truncated at 100 items. To change the number of removed registers reported, set the "Number of Removed Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                               ;
++--------------------------------------+---------------------------+----------------------------------------+
+; Register name                        ; Reason for Removal        ; Registers Removed due to This Register ;
++--------------------------------------+---------------------------+----------------------------------------+
+; Breakout_DATA:Datapath|eastBorder[0] ; Stuck at GND              ; Breakout_VIEW:View|rightBorder[0]      ;
+;                                      ; due to stuck port data_in ;                                        ;
++--------------------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 349   ;
+; Number of registers using Synchronous Clear  ; 8     ;
+; Number of registers using Synchronous Load   ; 102   ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 77    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; Breakout_DATA:Datapath|level[0]         ; 12      ;
+; Breakout_DATA:Datapath|lives[1]         ; 8       ;
+; Breakout_DATA:Datapath|lives[0]         ; 9       ;
+; Breakout_DATA:Datapath|ballPositionY[7] ; 14      ;
+; Breakout_DATA:Datapath|ballPositionY[6] ; 15      ;
+; Breakout_DATA:Datapath|ballPositionY[5] ; 15      ;
+; Breakout_DATA:Datapath|ballPositionY[4] ; 15      ;
+; Breakout_DATA:Datapath|ballPositionY[3] ; 15      ;
+; Breakout_DATA:Datapath|ballPositionY[1] ; 14      ;
+; Breakout_DATA:Datapath|ballPositionX[7] ; 4       ;
+; Breakout_DATA:Datapath|ballPositionX[6] ; 4       ;
+; Breakout_DATA:Datapath|ballPositionX[5] ; 4       ;
+; Breakout_DATA:Datapath|ballPositionX[4] ; 4       ;
+; Breakout_DATA:Datapath|ballPositionX[3] ; 6       ;
+; Breakout_DATA:Datapath|ballPositionX[1] ; 6       ;
+; Breakout_DATA:Datapath|padREdge[8]      ; 3       ;
+; Breakout_DATA:Datapath|padREdge[6]      ; 3       ;
+; Breakout_DATA:Datapath|padREdge[4]      ; 3       ;
+; Breakout_DATA:Datapath|padREdge[3]      ; 3       ;
+; Breakout_DATA:Datapath|padREdge[2]      ; 3       ;
+; Breakout_DATA:Datapath|padLEdge[1]      ; 6       ;
+; Breakout_DATA:Datapath|padLEdge[8]      ; 4       ;
+; Breakout_DATA:Datapath|padLEdge[5]      ; 4       ;
+; Breakout_DATA:Datapath|ballMovementV[0] ; 7       ;
+; Breakout_DATA:Datapath|angle[0]         ; 2       ;
+; Breakout_DATA:Datapath|ballMovementH[0] ; 4       ;
+; Total number of inverted registers = 26 ;         ;
++-----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |Breakout|Breakout_VIEW:View|cntScrittaLampeggiante[10]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Breakout|Breakout_DATA:Datapath|level[3]                       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Breakout|Breakout_CONTROL:ControlUnit|movepadLeft              ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |Breakout|Breakout_CONTROL:ControlUnit|cntpadSpeed[13]          ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |Breakout|Breakout_CONTROL:ControlUnit|cntBallSpeed[14]         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Breakout|Breakout_KEYBOARD:KeyboardController|keyCode[5]       ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |Breakout|Breakout_DATA:Datapath|i[4]                           ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Breakout|Breakout_DATA:Datapath|ballPositionY[2]               ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |Breakout|Breakout_KEYBOARD:KeyboardController|breakReceived[1] ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |Breakout|Breakout_DATA:Datapath|padREdge[9]                    ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |Breakout|Breakout_KEYBOARD:KeyboardController|bitCount[1]      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |Breakout|Breakout_DATA:Datapath|lives[2]                       ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |Breakout|Breakout_VIEW:View|leds1[2]                           ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |Breakout|Breakout_VIEW:View|leds3[2]                           ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Breakout|Breakout_DATA:Datapath|ballPositionX[0]               ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |Breakout|Breakout_DATA:Datapath|ballPositionY[4]               ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Breakout|Breakout_DATA:Datapath|padLEdge[8]                    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |Breakout|Breakout_DATA:Datapath|lives[0]                       ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |Breakout|Breakout_DATA:Datapath|ballPositionX[7]               ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |Breakout|Breakout_VIEW:View|cntScrittaLampeggiante~42          ;
+; 3:1                ; 27 bits   ; 54 LEs        ; 27 LEs               ; 27 LEs                 ; No         ; |Breakout|Breakout_DATA:Datapath|ostacoli~304                   ;
+; 3:1                ; 97 bits   ; 194 LEs       ; 97 LEs               ; 97 LEs                 ; No         ; |Breakout|Breakout_DATA:Datapath|ostacoli~272                   ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Breakout|Breakout_DATA:Datapath|padLeftEdge~62                 ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Breakout|Breakout_DATA:Datapath|ballPositionH~143              ;
+; 3:1                ; 43 bits   ; 86 LEs        ; 43 LEs               ; 43 LEs                 ; No         ; |Breakout|Breakout_DATA:Datapath|ballPositionV~20               ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Breakout|Breakout_DATA:Datapath|ballMovementH~31               ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |Breakout|Breakout_DATA:Datapath|ballPositionV~126              ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Breakout|Breakout_DATA:Datapath|ballPositionH~94               ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; No         ; |Breakout|Breakout_DATA:Datapath|ballPositionH~68               ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; No         ; |Breakout|Breakout_DATA:Datapath|ballPositionV~91               ;
+; 121:1              ; 2 bits    ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |Breakout|Breakout_DATA:Datapath|Mux3                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |Breakout|Breakout_DATA:Datapath|ballMovementH~21               ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |Breakout|Breakout_CONTROL:ControlUnit|Mux4                     ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Breakout|Breakout_DATA:Datapath|ballMovementV~21               ;
+; 210:1              ; 3 bits    ; 420 LEs       ; 30 LEs               ; 390 LEs                ; No         ; |Breakout|Breakout_VIEW:View|red_signal~2065                    ;
+; 210:1              ; 3 bits    ; 420 LEs       ; 36 LEs               ; 384 LEs                ; No         ; |Breakout|Breakout_VIEW:View|red_signal~2067                    ;
+; 271:1              ; 2 bits    ; 360 LEs       ; 256 LEs              ; 104 LEs                ; No         ; |Breakout|Breakout_VIEW:View|blue_signal~2311                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Breakout_DATA:Datapath|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                       ;
+; LPM_WIDTHD             ; 8              ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_45m ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 1              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Breakout_DATA:Datapath|lpm_mult:Mult0 ;
++------------------------------------------------+------------+--------------------------+
+; Parameter Name                                 ; Value      ; Type                     ;
++------------------------------------------------+------------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 6          ; Untyped                  ;
+; LPM_WIDTHB                                     ; 8          ; Untyped                  ;
+; LPM_WIDTHP                                     ; 14         ; Untyped                  ;
+; LPM_WIDTHR                                     ; 14         ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                  ;
+; LPM_REPRESENTATION                             ; UNSIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                  ;
+; LATENCY                                        ; 0          ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; YES        ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                  ;
+; USE_EAB                                        ; OFF        ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                  ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_sv01  ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                  ;
++------------------------------------------------+------------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Breakout_DATA:Datapath|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                       ;
+; LPM_WIDTHD             ; 4              ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_tcm ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 1              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                ;
++---------------------------------------+---------------------------------------+
+; Name                                  ; Value                                 ;
++---------------------------------------+---------------------------------------+
+; Number of entity instances            ; 1                                     ;
+; Entity Instance                       ; Breakout_DATA:Datapath|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 6                                     ;
+;     -- LPM_WIDTHB                     ; 8                                     ;
+;     -- LPM_WIDTHP                     ; 14                                    ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                              ;
+;     -- INPUT_A_IS_CONSTANT            ; YES                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                    ;
+;     -- USE_EAB                        ; OFF                                   ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                  ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                    ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                    ;
++---------------------------------------+---------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 7.2 Build 151 09/26/2007 SJ Web Edition
+    Info: Processing started: Mon Sep 16 22:45:00 2013
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Breakout -c Breakout
+Info: Found 2 design units, including 1 entities, in source file Breakout_CLKGENERATOR.vhd
+    Info: Found design unit 1: Breakout_CLKGENERATOR-Behavioral
+    Info: Found entity 1: Breakout_CLKGENERATOR
+Info: Found 2 design units, including 1 entities, in source file Breakout_KEYBOARD.vhd
+    Info: Found design unit 1: Breakout_KEYBOARD-Behavioral
+    Info: Found entity 1: Breakout_KEYBOARD
+Warning: Can't analyze file -- file C:/Users/Matteo/Desktop/Breakout/Breakout_CNTROL.vhd is missing
+Info: Found 2 design units, including 1 entities, in source file Breakout_DATA.vhd
+    Info: Found design unit 1: Breakout_DATA-behavior
+    Info: Found entity 1: Breakout_DATA
+Info: Found 2 design units, including 1 entities, in source file Breakout_VIEW.vhd
+    Info: Found design unit 1: Breakout_VIEW-behavior
+    Info: Found entity 1: Breakout_VIEW
+Info: Found 2 design units, including 1 entities, in source file Breakout_CONTROL.vhd
+    Info: Found design unit 1: Breakout_CONTROL-behavior
+    Info: Found entity 1: Breakout_CONTROL
+Info: Found 2 design units, including 1 entities, in source file Breakout.vhd
+    Info: Found design unit 1: Breakout-Behavioral
+    Info: Found entity 1: Breakout
+Info: Elaborating entity "Breakout" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at Breakout.vhd(144): used implicit default value for signal "padUEdge" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at Breakout.vhd(145): used implicit default value for signal "padDEdge" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info: Elaborating entity "Breakout_CLKGENERATOR" for hierarchy "Breakout_CLKGENERATOR:ClockGenerator"
+Info: Elaborating entity "Breakout_KEYBOARD" for hierarchy "Breakout_KEYBOARD:KeyboardController"
+Info: Elaborating entity "Breakout_CONTROL" for hierarchy "Breakout_CONTROL:ControlUnit"
+Info: Elaborating entity "Breakout_DATA" for hierarchy "Breakout_DATA:Datapath"
+Warning (10036): Verilog HDL or VHDL warning at Breakout_DATA.vhd(44): object "oldBallMovementV" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Breakout_DATA.vhd(45): object "oldBallMovementH" assigned a value but never read
+Warning (10542): VHDL Variable Declaration warning at Breakout_DATA.vhd(50): used initial value expression for variable "padHorizontalDimension" because variable was never assigned a value
+Warning (10036): Verilog HDL or VHDL warning at Breakout_DATA.vhd(62): object "dead" assigned a value but never read
+Warning (10542): VHDL Variable Declaration warning at Breakout_DATA.vhd(76): used initial value expression for variable "ballDirectionIsRight" because variable was never assigned a value
+Info: Elaborating entity "Breakout_VIEW" for hierarchy "Breakout_VIEW:View"
+Warning (14130): Reduced register "Breakout_VIEW:View|leds2[6]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "Breakout_VIEW:View|leds2[5]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_VIEW:View|leds2[5]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_VIEW:View|leds2[4]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_VIEW:View|leds2[4]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_VIEW:View|leds2[3]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_VIEW:View|leds2[3]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_VIEW:View|leds2[2]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_VIEW:View|leds2[2]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_VIEW:View|leds2[1]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_VIEW:View|leds2[1]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_VIEW:View|leds2[0]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_VIEW:View|leds2[0]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_VIEW:View|leds4[6]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_VIEW:View|leds4[6]" with stuck data_in port to stuck value VCC
+Warning (14130): Reduced register "Breakout_VIEW:View|leds4[5]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_VIEW:View|leds4[4]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_VIEW:View|leds4[3]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "Breakout_VIEW:View|leds4[2]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_VIEW:View|leds4[2]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_VIEW:View|leds4[1]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_VIEW:View|leds4[1]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_VIEW:View|leds4[0]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_VIEW:View|leds4[0]" with stuck data_in port to stuck value VCC
+Warning (14130): Reduced register "Breakout_DATA:Datapath|westBorder[6]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "Breakout_DATA:Datapath|westBorder[5]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|westBorder[5]" with stuck data_in port to stuck value VCC
+Warning (14130): Reduced register "Breakout_DATA:Datapath|westBorder[4]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "Breakout_DATA:Datapath|westBorder[3]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|westBorder[3]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|westBorder[2]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|westBorder[2]" with stuck data_in port to stuck value VCC
+Warning (14130): Reduced register "Breakout_DATA:Datapath|westBorder[1]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "Breakout_DATA:Datapath|westBorder[0]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|westBorder[0]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|eastBorder[9]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|eastBorder[9]" with stuck data_in port to stuck value VCC
+Warning (14130): Reduced register "Breakout_DATA:Datapath|eastBorder[8]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|eastBorder[7]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "Breakout_DATA:Datapath|eastBorder[6]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|eastBorder[6]" with stuck data_in port to stuck value VCC
+Warning (14130): Reduced register "Breakout_DATA:Datapath|eastBorder[5]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "Breakout_DATA:Datapath|eastBorder[4]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|eastBorder[4]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|eastBorder[3]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|eastBorder[3]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|eastBorder[2]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|eastBorder[2]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|eastBorder[1]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|eastBorder[1]" with stuck data_in port to stuck value VCC
+Warning (14130): Reduced register "Breakout_DATA:Datapath|eastBorder[0]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|westBorder[7]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|westBorder[8]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|westBorder[9]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|southBorder[0]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|southBorder[1]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "Breakout_DATA:Datapath|southBorder[2]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|southBorder[2]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|southBorder[3]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|southBorder[3]" with stuck data_in port to stuck value VCC
+Warning (14130): Reduced register "Breakout_DATA:Datapath|southBorder[4]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|southBorder[5]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "Breakout_DATA:Datapath|southBorder[6]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|southBorder[6]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|southBorder[7]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|southBorder[7]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|southBorder[8]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|southBorder[8]" with stuck data_in port to stuck value VCC
+Warning (14130): Reduced register "Breakout_DATA:Datapath|northBorder[0]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "Breakout_DATA:Datapath|northBorder[1]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|northBorder[1]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|northBorder[2]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|northBorder[2]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|northBorder[3]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|northBorder[3]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "Breakout_DATA:Datapath|northBorder[4]" is not specified -- using power-up level of High to minimize register
+Warning (14130): Reduced register "Breakout_DATA:Datapath|northBorder[4]" with stuck data_in port to stuck value VCC
+Warning (14130): Reduced register "Breakout_DATA:Datapath|northBorder[5]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|northBorder[6]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|northBorder[7]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|northBorder[8]" with stuck data_in port to stuck value GND
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "Breakout_VIEW:View|leftBorder[7]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|upBorder[0]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|downBorder[0]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|leftBorder[4]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|upBorder[6]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|leftBorder[9]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|downBorder[4]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|upBorder[5]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|downBorder[5]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|leftBorder[6]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|upBorder[8]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|rightBorder[7]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|leftBorder[8]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|upBorder[7]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|leftBorder[1]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|rightBorder[8]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|downBorder[1]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|rightBorder[5]" merged to single register "Breakout_VIEW:View|rightBorder[0]"
+    Info: Duplicate register "Breakout_VIEW:View|rightBorder[2]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|upBorder[3]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|downBorder[7]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|leftBorder[5]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|downBorder[8]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|leftBorder[2]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|upBorder[2]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|rightBorder[9]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|rightBorder[6]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|upBorder[1]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|rightBorder[4]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|upBorder[4]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|rightBorder[3]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|downBorder[3]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|downBorder[6]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|leftBorder[0]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|downBorder[2]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_VIEW:View|leftBorder[3]" merged to single register "Breakout_VIEW:View|rightBorder[1]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionH[9]" merged to single register "Breakout_DATA:Datapath|ballPositionX[9]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionH[8]" merged to single register "Breakout_DATA:Datapath|ballPositionX[8]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionH[7]" merged to single register "Breakout_DATA:Datapath|ballPositionX[7]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionH[6]" merged to single register "Breakout_DATA:Datapath|ballPositionX[6]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionH[5]" merged to single register "Breakout_DATA:Datapath|ballPositionX[5]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionH[4]" merged to single register "Breakout_DATA:Datapath|ballPositionX[4]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionH[3]" merged to single register "Breakout_DATA:Datapath|ballPositionX[3]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionH[2]" merged to single register "Breakout_DATA:Datapath|ballPositionX[2]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionH[1]" merged to single register "Breakout_DATA:Datapath|ballPositionX[1]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionH[0]" merged to single register "Breakout_DATA:Datapath|ballPositionX[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionV[8]" merged to single register "Breakout_DATA:Datapath|ballPositionY[8]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionV[7]" merged to single register "Breakout_DATA:Datapath|ballPositionY[7]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionV[6]" merged to single register "Breakout_DATA:Datapath|ballPositionY[6]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionV[5]" merged to single register "Breakout_DATA:Datapath|ballPositionY[5]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionV[4]" merged to single register "Breakout_DATA:Datapath|ballPositionY[4]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionV[3]" merged to single register "Breakout_DATA:Datapath|ballPositionY[3]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionV[2]" merged to single register "Breakout_DATA:Datapath|ballPositionY[2]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionV[1]" merged to single register "Breakout_DATA:Datapath|ballPositionY[1]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|ballPositionV[0]" merged to single register "Breakout_DATA:Datapath|ballPositionY[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padLeftEdge[9]" merged to single register "Breakout_DATA:Datapath|padLEdge[9]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padLeftEdge[8]" merged to single register "Breakout_DATA:Datapath|padLEdge[8]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|padLeftEdge[7]" merged to single register "Breakout_DATA:Datapath|padLEdge[7]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padLeftEdge[6]" merged to single register "Breakout_DATA:Datapath|padLEdge[6]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padLeftEdge[5]" merged to single register "Breakout_DATA:Datapath|padLEdge[5]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|padLeftEdge[4]" merged to single register "Breakout_DATA:Datapath|padLEdge[4]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padLeftEdge[3]" merged to single register "Breakout_DATA:Datapath|padLEdge[3]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padLeftEdge[2]" merged to single register "Breakout_DATA:Datapath|padLEdge[2]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padLeftEdge[0]" merged to single register "Breakout_DATA:Datapath|padLEdge[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padRightEdge[0]" merged to single register "Breakout_DATA:Datapath|padLEdge[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padRightEdge[9]" merged to single register "Breakout_DATA:Datapath|padREdge[9]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padRightEdge[8]" merged to single register "Breakout_DATA:Datapath|padREdge[8]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|padRightEdge[7]" merged to single register "Breakout_DATA:Datapath|padREdge[7]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padRightEdge[6]" merged to single register "Breakout_DATA:Datapath|padREdge[6]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|padRightEdge[5]" merged to single register "Breakout_DATA:Datapath|padREdge[5]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padRightEdge[4]" merged to single register "Breakout_DATA:Datapath|padREdge[4]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|padRightEdge[3]" merged to single register "Breakout_DATA:Datapath|padREdge[3]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|padRightEdge[2]" merged to single register "Breakout_DATA:Datapath|padREdge[2]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|padRightEdge[1]" merged to single register "Breakout_DATA:Datapath|padREdge[1]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|padLeftEdge[1]" merged to single register "Breakout_DATA:Datapath|padREdge[1]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[0]" merged to single register "Breakout_DATA:Datapath|obstacles[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[1]" merged to single register "Breakout_DATA:Datapath|obstacles[1]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[2]" merged to single register "Breakout_DATA:Datapath|obstacles[2]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[3]" merged to single register "Breakout_DATA:Datapath|obstacles[3]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[4]" merged to single register "Breakout_DATA:Datapath|obstacles[4]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[5]" merged to single register "Breakout_DATA:Datapath|obstacles[5]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[6]" merged to single register "Breakout_DATA:Datapath|obstacles[6]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[7]" merged to single register "Breakout_DATA:Datapath|obstacles[7]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[8]" merged to single register "Breakout_DATA:Datapath|obstacles[8]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[9]" merged to single register "Breakout_DATA:Datapath|obstacles[9]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[10]" merged to single register "Breakout_DATA:Datapath|obstacles[10]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[11]" merged to single register "Breakout_DATA:Datapath|obstacles[11]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[12]" merged to single register "Breakout_DATA:Datapath|obstacles[12]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[13]" merged to single register "Breakout_DATA:Datapath|obstacles[13]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[14]" merged to single register "Breakout_DATA:Datapath|obstacles[14]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[15]" merged to single register "Breakout_DATA:Datapath|obstacles[15]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[16]" merged to single register "Breakout_DATA:Datapath|obstacles[16]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[17]" merged to single register "Breakout_DATA:Datapath|obstacles[17]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[18]" merged to single register "Breakout_DATA:Datapath|obstacles[18]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[19]" merged to single register "Breakout_DATA:Datapath|obstacles[19]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[20]" merged to single register "Breakout_DATA:Datapath|obstacles[20]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[21]" merged to single register "Breakout_DATA:Datapath|obstacles[21]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[22]" merged to single register "Breakout_DATA:Datapath|obstacles[22]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[23]" merged to single register "Breakout_DATA:Datapath|obstacles[23]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[24]" merged to single register "Breakout_DATA:Datapath|obstacles[24]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[25]" merged to single register "Breakout_DATA:Datapath|obstacles[25]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[26]" merged to single register "Breakout_DATA:Datapath|obstacles[26]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[27]" merged to single register "Breakout_DATA:Datapath|obstacles[27]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[28]" merged to single register "Breakout_DATA:Datapath|obstacles[28]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[29]" merged to single register "Breakout_DATA:Datapath|obstacles[29]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[30]" merged to single register "Breakout_DATA:Datapath|obstacles[30]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[31]" merged to single register "Breakout_DATA:Datapath|obstacles[31]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[32]" merged to single register "Breakout_DATA:Datapath|obstacles[32]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[33]" merged to single register "Breakout_DATA:Datapath|obstacles[33]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[34]" merged to single register "Breakout_DATA:Datapath|obstacles[34]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[35]" merged to single register "Breakout_DATA:Datapath|obstacles[35]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[36]" merged to single register "Breakout_DATA:Datapath|obstacles[36]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[37]" merged to single register "Breakout_DATA:Datapath|obstacles[37]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[38]" merged to single register "Breakout_DATA:Datapath|obstacles[38]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[39]" merged to single register "Breakout_DATA:Datapath|obstacles[39]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[40]" merged to single register "Breakout_DATA:Datapath|obstacles[40]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[41]" merged to single register "Breakout_DATA:Datapath|obstacles[41]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[42]" merged to single register "Breakout_DATA:Datapath|obstacles[42]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[43]" merged to single register "Breakout_DATA:Datapath|obstacles[43]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[44]" merged to single register "Breakout_DATA:Datapath|obstacles[44]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[45]" merged to single register "Breakout_DATA:Datapath|obstacles[45]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[46]" merged to single register "Breakout_DATA:Datapath|obstacles[46]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[47]" merged to single register "Breakout_DATA:Datapath|obstacles[47]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[48]" merged to single register "Breakout_DATA:Datapath|obstacles[48]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[49]" merged to single register "Breakout_DATA:Datapath|obstacles[49]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[50]" merged to single register "Breakout_DATA:Datapath|obstacles[50]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[51]" merged to single register "Breakout_DATA:Datapath|obstacles[51]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[52]" merged to single register "Breakout_DATA:Datapath|obstacles[52]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[53]" merged to single register "Breakout_DATA:Datapath|obstacles[53]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[54]" merged to single register "Breakout_DATA:Datapath|obstacles[54]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[55]" merged to single register "Breakout_DATA:Datapath|obstacles[55]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[56]" merged to single register "Breakout_DATA:Datapath|obstacles[56]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[57]" merged to single register "Breakout_DATA:Datapath|obstacles[57]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[58]" merged to single register "Breakout_DATA:Datapath|obstacles[58]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[59]" merged to single register "Breakout_DATA:Datapath|obstacles[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[60]" merged to single register "Breakout_DATA:Datapath|obstacles[60]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[61]" merged to single register "Breakout_DATA:Datapath|obstacles[61]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[62]" merged to single register "Breakout_DATA:Datapath|obstacles[62]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[63]" merged to single register "Breakout_DATA:Datapath|obstacles[63]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[64]" merged to single register "Breakout_DATA:Datapath|obstacles[64]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[65]" merged to single register "Breakout_DATA:Datapath|obstacles[65]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[66]" merged to single register "Breakout_DATA:Datapath|obstacles[66]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[67]" merged to single register "Breakout_DATA:Datapath|obstacles[67]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[68]" merged to single register "Breakout_DATA:Datapath|obstacles[68]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[69]" merged to single register "Breakout_DATA:Datapath|obstacles[69]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[70]" merged to single register "Breakout_DATA:Datapath|obstacles[70]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[71]" merged to single register "Breakout_DATA:Datapath|obstacles[71]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[72]" merged to single register "Breakout_DATA:Datapath|obstacles[72]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[73]" merged to single register "Breakout_DATA:Datapath|obstacles[73]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[74]" merged to single register "Breakout_DATA:Datapath|obstacles[74]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[75]" merged to single register "Breakout_DATA:Datapath|obstacles[75]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[76]" merged to single register "Breakout_DATA:Datapath|obstacles[76]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[77]" merged to single register "Breakout_DATA:Datapath|obstacles[77]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[78]" merged to single register "Breakout_DATA:Datapath|obstacles[78]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[79]" merged to single register "Breakout_DATA:Datapath|obstacles[79]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[80]" merged to single register "Breakout_DATA:Datapath|obstacles[80]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[81]" merged to single register "Breakout_DATA:Datapath|obstacles[81]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[82]" merged to single register "Breakout_DATA:Datapath|obstacles[82]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[83]" merged to single register "Breakout_DATA:Datapath|obstacles[83]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[84]" merged to single register "Breakout_DATA:Datapath|obstacles[84]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[85]" merged to single register "Breakout_DATA:Datapath|obstacles[85]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[86]" merged to single register "Breakout_DATA:Datapath|obstacles[86]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[87]" merged to single register "Breakout_DATA:Datapath|obstacles[87]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[88]" merged to single register "Breakout_DATA:Datapath|obstacles[88]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[89]" merged to single register "Breakout_DATA:Datapath|obstacles[89]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[90]" merged to single register "Breakout_DATA:Datapath|obstacles[90]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[91]" merged to single register "Breakout_DATA:Datapath|obstacles[91]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[92]" merged to single register "Breakout_DATA:Datapath|obstacles[92]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[93]" merged to single register "Breakout_DATA:Datapath|obstacles[93]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[94]" merged to single register "Breakout_DATA:Datapath|obstacles[94]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[95]" merged to single register "Breakout_DATA:Datapath|obstacles[95]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[96]" merged to single register "Breakout_DATA:Datapath|obstacles[96]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[97]" merged to single register "Breakout_DATA:Datapath|obstacles[97]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[98]" merged to single register "Breakout_DATA:Datapath|obstacles[98]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[99]" merged to single register "Breakout_DATA:Datapath|obstacles[99]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[100]" merged to single register "Breakout_DATA:Datapath|obstacles[100]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[101]" merged to single register "Breakout_DATA:Datapath|obstacles[101]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[102]" merged to single register "Breakout_DATA:Datapath|obstacles[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[103]" merged to single register "Breakout_DATA:Datapath|obstacles[103]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[104]" merged to single register "Breakout_DATA:Datapath|obstacles[104]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[105]" merged to single register "Breakout_DATA:Datapath|obstacles[105]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[106]" merged to single register "Breakout_DATA:Datapath|obstacles[106]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[107]" merged to single register "Breakout_DATA:Datapath|obstacles[107]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[108]" merged to single register "Breakout_DATA:Datapath|obstacles[108]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[109]" merged to single register "Breakout_DATA:Datapath|obstacles[109]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[110]" merged to single register "Breakout_DATA:Datapath|obstacles[110]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[111]" merged to single register "Breakout_DATA:Datapath|obstacles[111]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[112]" merged to single register "Breakout_DATA:Datapath|obstacles[112]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[113]" merged to single register "Breakout_DATA:Datapath|obstacles[113]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[114]" merged to single register "Breakout_DATA:Datapath|obstacles[114]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[115]" merged to single register "Breakout_DATA:Datapath|obstacles[115]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[116]" merged to single register "Breakout_DATA:Datapath|obstacles[116]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[117]" merged to single register "Breakout_DATA:Datapath|obstacles[117]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[118]" merged to single register "Breakout_DATA:Datapath|obstacles[118]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[119]" merged to single register "Breakout_DATA:Datapath|obstacles[119]"
+    Info: Duplicate register "Breakout_DATA:Datapath|ostacoli[120]" merged to single register "Breakout_DATA:Datapath|obstacles[120]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[16]" merged to single register "Breakout_DATA:Datapath|fixed[16]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[57]" merged to single register "Breakout_DATA:Datapath|fixed[16]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[64]" merged to single register "Breakout_DATA:Datapath|fixed[16]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[59]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[52]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[18]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[51]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[47]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[43]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[39]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[35]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[31]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[28]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[23]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[107]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[106]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[108]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[19]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[104]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[42]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[66]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[37]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[24]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[61]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[58]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[60]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[53]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[50]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[120]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[45]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[15]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[13]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[44]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[103]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[101]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[7]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[49]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[99]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[3]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[1]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[0]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[97]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[96]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[40]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[95]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[94]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[93]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[92]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[91]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[90]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[89]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[88]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[33]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[30]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[87]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[29]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[86]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[26]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[85]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[84]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[34]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[83]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[22]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[17]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[82]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[21]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[81]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[80]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[109]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[79]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[63]" merged to single register "Breakout_DATA:Datapath|fixed[63]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[55]" merged to single register "Breakout_DATA:Datapath|fixed[63]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[27]" merged to single register "Breakout_DATA:Datapath|fixed[63]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[56]" merged to single register "Breakout_DATA:Datapath|fixed[63]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[5]" merged to single register "Breakout_DATA:Datapath|fixed[63]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[65]" merged to single register "Breakout_DATA:Datapath|fixed[63]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[102]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[78]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[77]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[76]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[105]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[75]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[38]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[32]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[62]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[54]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[74]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[73]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[20]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[46]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[72]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[12]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[48]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[9]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[8]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[6]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[100]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[4]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[2]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[98]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[14]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[11]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[71]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[36]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[70]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[69]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[41]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[25]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[68]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[10]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[67]" merged to single register "Breakout_DATA:Datapath|fixed[102]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[112]" merged to single register "Breakout_DATA:Datapath|fixed[112]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[111]" merged to single register "Breakout_DATA:Datapath|fixed[112]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[115]" merged to single register "Breakout_DATA:Datapath|fixed[112]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[114]" merged to single register "Breakout_DATA:Datapath|fixed[112]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[118]" merged to single register "Breakout_DATA:Datapath|fixed[112]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[110]" merged to single register "Breakout_DATA:Datapath|fixed[112]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[116]" merged to single register "Breakout_DATA:Datapath|fixed[112]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[119]" merged to single register "Breakout_DATA:Datapath|fixed[119]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[113]" merged to single register "Breakout_DATA:Datapath|fixed[119]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fissi[117]" merged to single register "Breakout_DATA:Datapath|fixed[119]"
+    Info: Duplicate register "Breakout_DATA:Datapath|vite[3]" merged to single register "Breakout_DATA:Datapath|lives[3]"
+    Info: Duplicate register "Breakout_DATA:Datapath|vite[2]" merged to single register "Breakout_DATA:Datapath|lives[2]"
+    Info: Duplicate register "Breakout_DATA:Datapath|vite[1]" merged to single register "Breakout_DATA:Datapath|lives[1]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|vite[0]" merged to single register "Breakout_DATA:Datapath|lives[0]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|livello[3]" merged to single register "Breakout_DATA:Datapath|level[3]"
+    Info: Duplicate register "Breakout_DATA:Datapath|livello[2]" merged to single register "Breakout_DATA:Datapath|level[2]"
+    Info: Duplicate register "Breakout_DATA:Datapath|livello[1]" merged to single register "Breakout_DATA:Datapath|level[1]"
+    Info: Duplicate register "Breakout_DATA:Datapath|livello[0]" merged to single register "Breakout_DATA:Datapath|level[0]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|youWin" merged to single register "Breakout_DATA:Datapath|victory"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[63]" merged to single register "Breakout_DATA:Datapath|fixed[16]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[102]" merged to single register "Breakout_DATA:Datapath|fixed[59]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[119]" merged to single register "Breakout_DATA:Datapath|fixed[112]"
+Warning (14130): Reduced register "Breakout_VIEW:View|rightBorder[0]" with stuck data_in port to stuck value GND
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "Breakout_VIEW:View|leds1[0]" merged to single register "Breakout_VIEW:View|leds1[3]"
+    Info: Duplicate register "Breakout_VIEW:View|leds3[3]" merged to single register "Breakout_VIEW:View|leds3[6]"
+    Info: Duplicate register "Breakout_VIEW:View|leds3[0]" merged to single register "Breakout_VIEW:View|leds3[6]"
+    Info: Duplicate register "Breakout_DATA:Datapath|padREdge[1]" merged to single register "Breakout_DATA:Datapath|padLEdge[1]", power-up level changed
+    Info: Duplicate register "Breakout_DATA:Datapath|padREdge[0]" merged to single register "Breakout_DATA:Datapath|padLEdge[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[120]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[109]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[108]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[107]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[106]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[105]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[104]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[103]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[59]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[101]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[100]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[99]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[98]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[97]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[96]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[95]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[94]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[93]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[92]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[91]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[90]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[89]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[88]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[87]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[86]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[85]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[84]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[83]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[82]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[81]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[80]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[79]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[78]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[77]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[76]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[75]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[74]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[73]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[72]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[71]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[70]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[69]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[68]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[67]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[66]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[62]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[61]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[60]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[58]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[54]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[53]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[52]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[51]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[50]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[49]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[48]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[47]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[46]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[45]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[44]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[43]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[42]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[41]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[40]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[39]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[38]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[37]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[36]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[35]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[34]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[33]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[32]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[31]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[30]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[29]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[28]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[26]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[25]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[24]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[23]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[22]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[21]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[20]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[19]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[18]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[17]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[15]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[14]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[13]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[12]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[11]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[10]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[9]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[8]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[7]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[6]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[4]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[3]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[2]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[1]" merged to single register "Breakout_DATA:Datapath|fixed[0]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[65]" merged to single register "Breakout_DATA:Datapath|fixed[5]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[64]" merged to single register "Breakout_DATA:Datapath|fixed[5]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[57]" merged to single register "Breakout_DATA:Datapath|fixed[5]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[56]" merged to single register "Breakout_DATA:Datapath|fixed[5]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[55]" merged to single register "Breakout_DATA:Datapath|fixed[5]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[27]" merged to single register "Breakout_DATA:Datapath|fixed[5]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[16]" merged to single register "Breakout_DATA:Datapath|fixed[5]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[112]" merged to single register "Breakout_DATA:Datapath|fixed[110]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[118]" merged to single register "Breakout_DATA:Datapath|fixed[110]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[117]" merged to single register "Breakout_DATA:Datapath|fixed[110]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[116]" merged to single register "Breakout_DATA:Datapath|fixed[110]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[115]" merged to single register "Breakout_DATA:Datapath|fixed[110]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[114]" merged to single register "Breakout_DATA:Datapath|fixed[110]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[113]" merged to single register "Breakout_DATA:Datapath|fixed[110]"
+    Info: Duplicate register "Breakout_DATA:Datapath|fixed[111]" merged to single register "Breakout_DATA:Datapath|fixed[110]"
+Warning (14130): Reduced register "Breakout_VIEW:View|leds1[1]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_VIEW:View|leds3[1]" with stuck data_in port to stuck value GND
+Warning (14130): Reduced register "Breakout_DATA:Datapath|fixed[0]" with stuck data_in port to stuck value GND
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "Breakout_VIEW:View|green_signal[0]" merged to single register "Breakout_VIEW:View|red_signal[0]"
+    Info: Duplicate register "Breakout_VIEW:View|green_signal[2]" merged to single register "Breakout_VIEW:View|red_signal[2]"
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "Breakout_VIEW:View|green[0]" merged to single register "Breakout_VIEW:View|red[0]"
+    Info: Duplicate register "Breakout_VIEW:View|green[2]" merged to single register "Breakout_VIEW:View|red[2]"
+Info: Inferred 3 megafunctions from design logic
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Breakout_DATA:Datapath|Mod0"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Breakout_DATA:Datapath|Mult0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Breakout_DATA:Datapath|Div0"
+Info: Found 1 design units, including 1 entities, in source file ../../../../altera/72/quartus/libraries/megafunctions/lpm_divide.tdf
+    Info: Found entity 1: lpm_divide
+Info: Elaborated megafunction instantiation "Breakout_DATA:Datapath|lpm_divide:Mod0"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_45m.tdf
+    Info: Found entity 1: lpm_divide_45m
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info: Found entity 1: sign_div_unsign_bkh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_sve.tdf
+    Info: Found entity 1: alt_u_div_sve
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info: Found entity 1: add_sub_lkc
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info: Found entity 1: add_sub_mkc
+Info: Found 1 design units, including 1 entities, in source file ../../../../altera/72/quartus/libraries/megafunctions/lpm_mult.tdf
+    Info: Found entity 1: lpm_mult
+Info: Elaborated megafunction instantiation "Breakout_DATA:Datapath|lpm_mult:Mult0"
+Info: Found 1 design units, including 1 entities, in source file db/mult_sv01.tdf
+    Info: Found entity 1: mult_sv01
+Info: Elaborated megafunction instantiation "Breakout_DATA:Datapath|lpm_divide:Div0"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_tcm.tdf
+    Info: Found entity 1: lpm_divide_tcm
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info: Found entity 1: sign_div_unsign_7kh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_kve.tdf
+    Info: Found entity 1: alt_u_div_kve
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "leds1[1]" stuck at GND
+    Warning (13410): Pin "leds2[0]" stuck at VCC
+    Warning (13410): Pin "leds2[1]" stuck at VCC
+    Warning (13410): Pin "leds2[2]" stuck at VCC
+    Warning (13410): Pin "leds2[3]" stuck at VCC
+    Warning (13410): Pin "leds2[4]" stuck at VCC
+    Warning (13410): Pin "leds2[5]" stuck at VCC
+    Warning (13410): Pin "leds2[6]" stuck at GND
+    Warning (13410): Pin "leds3[1]" stuck at GND
+    Warning (13410): Pin "leds4[0]" stuck at VCC
+    Warning (13410): Pin "leds4[1]" stuck at VCC
+    Warning (13410): Pin "leds4[2]" stuck at VCC
+    Warning (13410): Pin "leds4[3]" stuck at GND
+    Warning (13410): Pin "leds4[4]" stuck at GND
+    Warning (13410): Pin "leds4[5]" stuck at GND
+    Warning (13410): Pin "leds4[6]" stuck at VCC
+Info: Implemented 4414 device resources after synthesis - the final resource count might be different
+    Info: Implemented 4 input pins
+    Info: Implemented 42 output pins
+    Info: Implemented 4367 logic cells
+    Info: Implemented 1 DSP elements
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 81 warnings
+    Info: Allocated 285 megabytes of memory during processing
+    Info: Processing ended: Mon Sep 16 22:48:01 2013
+    Info: Elapsed time: 00:03:01
+
+

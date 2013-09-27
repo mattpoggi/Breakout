@@ -1,0 +1,12 @@
+|
+3727efb71e928ec2e57cf10d018a48f
+Breakout_CLKGENERATOR:ClockGenerator
+484fa36c39ecdec437f44c187d67caf
+Breakout_KEYBOARD:KeyboardController
+705dd8592ae88c372cb4b8b2291b18e
+Breakout_CONTROL:ControlUnit
+a288920692e67aa81cad6d723547
+Breakout_DATA:Datapath
+3ccd1f1213c57c55a8393fe257bde31e
+Breakout_VIEW:View
+afd35f499074b159233a8826bde2d22c
